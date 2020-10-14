@@ -8,5 +8,8 @@
   },
   "author": "EDA",
   "license": "ISC",
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "7.9.0",
+    "eslint-config-eda": "0.1.4"
+  }
 }
