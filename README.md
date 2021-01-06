@@ -152,7 +152,7 @@ Once again, look for opportunities to refactor. Do you have a `scoreStrikes()` f
 
 ## Test 7: Scores the frames of a game
 
-Now that we can score many types of frames, let's add a feature to score a whole game of 10 frames. Because the 10th frame has special behaviour if there is a strike or a spare in it, we'll leave that scenario out of this test and test it separately later. But we can still add normal, spare, single strike and double strike frames.
+Now that we can score many types of frames, let's add a feature to score a whole game of 10 frames (maybe using a `scoreGame()` function?). Because the 10th frame has special behaviour if there is a strike or a spare in it, we'll leave that scenario out of this test and test it separately later. But we can still add normal, spare, single strike and double strike frames.
 
 ```js
 test('scores a game', () => {
