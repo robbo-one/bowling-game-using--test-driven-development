@@ -15,13 +15,16 @@ function scoreFrame (frame, secondFrame, thirdFrame) {
     score = spare(score, secondFrame)
   }
   return score
- 
 }
 
 function scoreGame (array) { //scores entire game
   let endScore = 0
   for (let i = 0; i < array.length; i++){
-    endScore = endScore+ scoreFrame (array[i],array[i+1],array[i+2])
+    if(array[i].length == 3){ //checks if very last bowl is strike/spare
+      endScore = endScore + array[i][0] + array[i][1] + array[i][2]
+    } else {
+      endScore = endScore+ scoreFrame (array[i],array[i+1],array[i+2])
+    }
   }
   return endScore
 }
@@ -38,5 +41,3 @@ function spare(score, secondFrame){ //scores a spare
   return score = score + secondFrame[0]
 }
 
-
-  
