@@ -2,7 +2,10 @@ module.exports = {
 
   scoreFrame: scoreFrame
 }
-function scoreFrame ( frame){
-  return 0
-
+function scoreFrame (frame){
+  
+  var sum = frame.reduce(function(a, b){
+    return a + b;
+});
+return sum
 }
