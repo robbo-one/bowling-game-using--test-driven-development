@@ -64,5 +64,14 @@ test('scores a strike in the 10th frame', () => {
   expect(actual).toBe(expected)
 })
 
+test('scores a perfect game', () => {
+  const frames = [[10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 10, 10]]
+  const expected = 300
+  const actual = score.scoreGame(frames)
+  expect(actual).toBe(expected)
+})
+
+
+
 //perfect score to test [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 10, 10] 300
 //expected 300

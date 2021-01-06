@@ -3,6 +3,18 @@ module.exports = {
   scoreGame: scoreGame
 }
 
+function scoreGame (array) { //scores entire game
+  let endScore = 0
+  for (let i = 0; i < array.length; i++){
+    if(array[i].length == 3){ //checks if very last bowl is strike/spare
+      endScore = endScore + array[i][0] + array[i][1] + array[i][2]
+    } else {
+      endScore = endScore+ scoreFrame (array[i],array[i+1],array[i+2])
+    }
+  }
+  return endScore
+}
+
 function scoreFrame (frame, secondFrame, thirdFrame) {
   let score = frame[0] + frame[1]
   if (frame[0] == 10){ // check for strike
@@ -17,18 +29,6 @@ function scoreFrame (frame, secondFrame, thirdFrame) {
   return score
 }
 
-function scoreGame (array) { //scores entire game
-  let endScore = 0
-  for (let i = 0; i < array.length; i++){
-    if(array[i].length == 3){ //checks if very last bowl is strike/spare
-      endScore = endScore + array[i][0] + array[i][1] + array[i][2]
-    } else {
-      endScore = endScore+ scoreFrame (array[i],array[i+1],array[i+2])
-    }
-  }
-  return endScore
-}
-
 function strike (score, secondFrame){ //scores a strike
   return score = score + secondFrame[0]+secondFrame[1]
 }
@@ -41,3 +41,6 @@ function spare(score, secondFrame){ //scores a spare
   return score = score + secondFrame[0]
 }
 
+function isLastFrame () {
+
+}
