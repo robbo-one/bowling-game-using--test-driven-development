@@ -10,8 +10,19 @@ function scoreFrame (frame, nextFrame, thirdFrame) {
         return frame[0] + frame[1]
     }
 }
+function scoreGame (game) {
+    let totalScore = 0 
+    let frameScore = 0
+    for (let i = 0; i < game.length; i++) {
+        frameScore = scoreFrame(game[i], game[i+1], game[i+2]) 
+        totalScore += frameScore
+        console.log(totalScore)
+    }
+    return totalScore
+}
 
 
 module.exports = {
     scoreFrame: scoreFrame,
+    scoreGame: scoreGame
 }

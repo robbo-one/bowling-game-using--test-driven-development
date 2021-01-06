@@ -45,3 +45,23 @@ test('scores a double strike frame', () => {
     const actual = score.scoreFrame(frame, nextFrame, thirdFrame)
     expect(actual).toBe(expected)
 }) 
+
+test('scores a game', () => {
+    const game = [
+
+        [4, 2],
+        [3, 7],
+        [1, 0],
+        [10, 0],
+        [10, 0],
+        [0, 0],
+        [0, 0],
+        [10, 0],
+        [3, 4],
+        [2, 6]
+
+    ]
+    const expected = 80
+    const actual = score.scoreGame(game)
+    expect(actual).toBe(expected)
+})
