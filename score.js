@@ -1,14 +1,23 @@
 module.exports = {
-  scoreFrame: scoreFrame
+  scoreFrame: scoreFrame,
+  scoreGame: scoreGame
+}
+
+function scoreGame (game){
+  const summedGame = game.map(x => scoreFrame(x));
+  const gameSum = summedGame.reduce(function(a, b){
+    return a + b;
+    },0);
+    return gameSum
 }
 
 
-function scoreFrame (frame, nextFrame, thirdFrame){
-  //Sum first frame
-
+//Sum frame
+function scoreFrame (frame, nextFrame, thirdFrame,){
   const frameSum = frame.reduce(function(a, b){
     return a + b;
 });
+
 
 // Sum second frame
 function secondFrameSum (nextFrame){
