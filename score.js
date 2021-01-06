@@ -1,8 +1,13 @@
 module.exports = {
   scoreFrame: scoreFrame,
-  scoresStrike: scoresStrike
+  scoresGame: scoresGame,
 
 }
+
+  const frames = [
+   [2, 0], [4, 2], [6, 0], [2, 4], [1, 5], [7, 0], [5, 2], [7, 0], [2, 6], [8, 1]
+   ]
+
 
 function scoreFrame(frame, nextFrame, thirdFrame) {
   // find sum of array 0 + array 1
@@ -19,7 +24,16 @@ function scoreFrame(frame, nextFrame, thirdFrame) {
 }
 }
 
-function scoresStrike(frame, nextFrame) {
 
 
-}
+function scoresGame (arr) {
+    let total = 0
+    arr = frames
+   for (i = 0; i < arr.length; i++){
+      total = total + arr[i][0] + arr[i][1] 
+    } 
+    return total
+  }
+  scoresGame()
+  
+
