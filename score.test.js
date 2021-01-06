@@ -6,7 +6,7 @@ test('test setup working', () => {
 
 test('scores a gutterball frame', () => {
   const frame = [0, 0]
-  const nextFrame = [0,0]
+  const nextFrame = [0, 0]
   const expected = 0
   const actual = score.scoreFrame(frame, nextFrame)
   expect(actual).toBe(expected)
@@ -14,7 +14,7 @@ test('scores a gutterball frame', () => {
 
 test('scores a normal frame', () => {
   const frame = [2, 3]
-  const nextFrame = [0,0]
+  const nextFrame = [0, 0]
   const expected = 5
   const actual = score.scoreFrame(frame, nextFrame)
   expect(actual).toBe(expected)
@@ -32,6 +32,14 @@ test('scores a single strike frame', () => {
   const frame = [10, 0]
   const nextFrame = [5, 1]
   const expected = 16
+  const actual = score.scoreFrame(frame, nextFrame)
+  expect(actual).toBe(expected)
+})
+
+test('scores a double strike frame', () => {
+  const frame = [10, 0]
+  const nextFrame = [4, 3]
+  const expected = 27
   const actual = score.scoreFrame(frame, nextFrame)
   expect(actual).toBe(expected)
 })
