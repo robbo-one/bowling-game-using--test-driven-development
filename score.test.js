@@ -17,3 +17,25 @@ test('scores a normal frame', () => {
   const actual = score.scoreFrame(frame)
   expect(actual).toBe(expected)
 })
+test('scores a spare frame', () => {
+  const frame = [7, 3]
+  const nextFrame = [3, 2]
+  const expected = 13
+  const actual = score.scoreFrame(frame,nextFrame)
+  expect(actual).toBe(expected)
+})
+test('scores a single strike frame', () => {
+  const frame = [10, 0]
+  const nextFrame = [3, 2]
+  const expected = 15
+  const actual = score.scoreFrame(frame,nextFrame)
+  expect(actual).toBe(expected)
+})
+test('scores a double strike frame', () => {
+  const frame = [10, 0]
+  const nextFrame = [10, 0]
+  const thirdFrame = [5, 1]
+  const expected = 26
+  const actual = score.scoreFrame(frame,nextFrame,thirdFrame)
+  expect(actual).toBe(expected)
+})
