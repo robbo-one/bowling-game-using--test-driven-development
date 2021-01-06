@@ -35,5 +35,11 @@ function scoresGame (arr) {
     return total
   }
   scoresGame()
+
+
+  //
+  function scoresSpareOrStrike () {
+
+  }
   
 
