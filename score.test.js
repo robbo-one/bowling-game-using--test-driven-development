@@ -74,9 +74,9 @@ test('scores a game with a strike in the 10th', () => {
         [5, 1],
         [10, 0],
         [3, 4],
-        [5, 5, 10]
+        [10, 10, 10]
     ]
-    const expected = 121
+    const expected = 131
     const actual = score.scoreGame(game)
     expect(actual).toBe(expected) 
 }) 

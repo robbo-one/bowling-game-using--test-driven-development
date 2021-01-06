@@ -1,5 +1,8 @@
 function scoreFrame (frame, nextFrame, thirdFrame) {
     if (frame.length === 3) {
+        if (frame[0] === 10) {
+            return 10 + frame[1] + frame[2]
+        }
         return 10 + frame[2]
     }    
     if (frame[0] === 10){
