@@ -37,4 +37,14 @@ test('scores a single strike frame', () => {
 
 })
 
+test('scores a double strike frame', () => {
+    const frameOne = [10, 0]
+    const frameTwo = [10,0]
+    const frameThree = [6, 8]
+    
+    const expected = 26
+    const actual = score.scoreFrame(frameOne, frameTwo, frameThree)
+    expect(actual).toBe(expected)
+})
+
 
