@@ -57,3 +57,13 @@ test('scores a game', () => {
     expect(actual).toBe(expected)
 })
 
+test('scores a spare in the 10th frame', () => {
+    const frames = [
+        [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [6, 4, 9]
+    ]
+
+    const expected = 130
+    const actual = score.gameScore(frames)
+    expect(actual).toBe(expected)
+})
+

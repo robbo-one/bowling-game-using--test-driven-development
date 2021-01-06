@@ -4,7 +4,7 @@ function gameScore(frames) {
         if (i === frames.length - 2) {
             total += scoreTwoFrames(frames[i], frames[i + 1]);
         } else if (i === frames.length - 1) {
-            total += normalBowl(frames[i]);
+            total += lastFrame(frames[i]);
         } else {
             total += scoreFrame(frames[i], frames[i + 1], frames[i + 2]);
         }
@@ -61,6 +61,14 @@ function spareBowl(frameOne, frameTwo) {
 
 function normalBowl(frameOne) {
     return frameOne[0] + frameOne[1];
+}
+
+function lastFrame(frameOne) {
+    if (frameOne.length === 3) {
+        return frameOne[0] + frameOne[1] + frameOne[2];
+    } else {
+        return normalBowl(frameOne);
+    }
 }
 
 module.exports = {
