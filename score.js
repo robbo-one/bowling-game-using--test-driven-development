@@ -1,13 +1,23 @@
 
-function scoreFrame (frame){
+function scoreFrame (frame, nextFrame){
+
+
   const numOne = frame[0]
   const numTwo = frame[1]
   const sum = numOne + numTwo
-  console.log(numOne, numTwo, sum)
+
   if (sum === 0) {
     return 0
   }
+
+  if (sum === 10){
+
+    return sum + nextFrame[0]
+  }
+
   return sum
+
+
 }
 
 
