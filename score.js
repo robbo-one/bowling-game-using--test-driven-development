@@ -1,29 +1,53 @@
-function scoreFrame (frame, nextFrame, nextNextFrame) {
-  let sum = frame[0] + frame[1]
+function scoreGame (frames) {
+  let total = 0
 
-  if (nextNextFrame && frame[0] === 10 && nextFrame[0] === 10) {
-    sum = sum + nextFrame[0] + nextNextFrame[0]
-  } else if (frame[0] === 10) {
-    sum = sum + nextFrame[0] + nextFrame[1]
-  } else if (sum === 10) {
-    sum = sum + nextFrame[0]
+  for (let i = 0; i < frames.length; i++) {
+    const thisFrame = frames[i]
+    const nextFrame = frames[i + 1]
+    const nextNextFrame = frames[i + 2]
+
+    if(thisFrame.length === 3){
+      total += score(thisFrame) + thisFrame[2]
+    } else {
+      total += scoreFrame(thisFrame, nextFrame, nextNextFrame)
+    }
+  }
+
+  return total
+}
+
+function scoreFrame (frame, nextFrame, nextNextFrame) {
+  let sum = score(frame)
+
+  if (nextNextFrame && isStrike(frame) && isStrike(nextFrame)) {
+    sum += ballOne(nextFrame) + ballOne(nextNextFrame)
+  } else if (isStrike(frame)) {
+    sum += score(nextFrame)
+  } else if (isSpare(frame)) {
+    sum += ballOne(nextFrame)
   }
 
   return sum
 }
 
-function scoreGame (frames) {
-  let total = 0
+function isSpare(frame) {
+  return score(frame) === 10
+}
 
-  for (let i = 0; i < frames.length; i++) {
-    if(frames[i].length === 3){
-      total = total + frames[i][0] + frames[i][1] + frames[i][2]
-    } else {
-      total = total + scoreFrame(frames[i], frames[i + 1], frames[i + 2])
-    }
-  }
+function isStrike(frame) {
+  return ballOne(frame) === 10
+}
 
-  return total
+function score (frame) {
+  return ballOne(frame) + ballTwo(frame)
+}
+
+function ballOne(frame) {
+  return frame[0]
+}
+
+function ballTwo(frame) {
+  return frame[1]
 }
 
 module.exports = {
