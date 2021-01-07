@@ -1,13 +1,18 @@
 module.exports = {
   scoreFrame: scoreFrame,
   scoresGame: scoresGame,
+  spareLastFrame: spareLastFrame,
+  strikeLastFrame: strikeLastFrame
 
 }
 
-  const frames = [
-   [2, 0], [4, 2], [6, 0], [2, 4], [1, 5], [7, 0], [5, 2], [7, 0], [2, 6], [8, 1]
-   ]
+  // const frames = [
+  // //  [2, 0], [4, 2], [6, 0], [2, 4], [1, 5], [7, 0], [5, 2], [7, 0], [2, 6], [8, 1]
+  // //  ]
 
+  const frames = [
+      [2, 0], [4, 2], [6, 0], [2, 4], [1, 5], [7, 0], [5, 2], [7, 0], [2, 6], [9, 1, 1]
+      ]
 
 function scoreFrame(frame, nextFrame, thirdFrame) {
   // find sum of array 0 + array 1
@@ -38,8 +43,17 @@ function scoresGame (arr) {
 
 
   //
-  function scoresSpareOrStrike () {
-
+  function spareLastFrame (arr) {
+// if final frame [9] is a spare add index [2] value to the frame [9] total
+    let total = 0
+      total = total + arr[0] + arr[1] + arr[2]
+    return total
   }
+
+  function strikeLastFrame (arr) {
+        let total = 0
+          total = total + arr[0] + arr[1] + arr[2]
+        return total
+      }
   
 

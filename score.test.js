@@ -50,13 +50,23 @@ test('scores a double strike frame', () => {
   expect(actual).toBe(expected)
 })
 
-test('scores a game', () => {
-  const totalScore = 64
-  const expected = 64
-  const actual = score.scoresGame(totalScore)
-  expect(actual).toBe(expected)
-})
+// test('scores a game', () => {
+//   const totalScore = 64
+//   const expected = 64
+//   const actual = score.scoresGame(totalScore)
+//   expect(actual).toBe(expected)
+// })
 
 test('scores a spare in the 10th frame', () => {
-  const finalFrame :
-})
+  const finalFrame = [9, 1, 1]
+  const expected = 11
+  const actual = score.spareLastFrame(finalFrame)
+  expect(actual).toBe(expected)
+  })
+
+  test('scores a strike in the 10th frame', () => {
+    const finalFrame = [10, 10, 10]
+    const expected = 30
+    const actual = score.strikeLastFrame(finalFrame)
+    expect(actual).toBe(expected)
+    })
