@@ -1,21 +1,27 @@
 
-function scoreFrame(frame, nextFrame) {
+function scoreFrame(frame, nextFrame, thirdFrame) {
+  console.log(thirdFrame)
   const numOne = frame[0]
   const numTwo = frame[1]
   const nfOne = nextFrame[0]
   const nfTwo = nextFrame[1]
+  const tfOne = thirdFrame[0]
+  const tfTwo = thirdFrame[1]
+
+
   const sum = numOne + numTwo
   const nfSum = nfOne + nfTwo
-  // const dblFrame = sum
+  const tfSum = tfOne + tfTwo
+
+  const dblFrame = sum
 
   if (isDblStrike(sum, numOne, nfSum, nfOne)) {
-    return sum + nfSum
+    return sum + nfSum + tfSum
   }
   else if (isStrike(sum, numOne)) {
     return sum + nfSum
   }
   else if (isSpare(sum)) {
-    console.log(sum)
     return sum + nfOne
   }
   else if (isGutter(sum)) {
@@ -50,6 +56,9 @@ function isDblStrike(sum, numOne, nfSum, nfOne) {
     return true
   }
   return false
+}
+function scoreGame(){
+
 }
 
 module.exports = {
