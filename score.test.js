@@ -22,14 +22,34 @@ test('scores a normal frame', () => {
 })
 
 test('scores a spare frame', () => {
-  const frame = [4,6]
+  const frame = [4, 6]
   const nextFrame = [5, 2]
   const expected = 15
 
   const actual = score.scoreFrame(frame, nextFrame)
-  
+
   expect(actual).toBe(expected)
+})
 
 
+test('scores a single strike', () => {
+  const frame = [10, 0]
+  const nextFrame = [5, 2]
+  const expected = 15
 
+  const actual = score.scoreFrame(frame, nextFrame)
+
+  expect(actual).toBe(expected)
+})
+
+
+test('scores a double strike frame', () => {
+  const frame = [10, 0]
+  const nextFrame = [10, 0]
+  const nextNextFrame = [3, 5]
+  const expected = 23
+
+  const actual = score.scoreFrame(frame, nextFrame, nextNextFrame)
+
+  expect(actual).toBe(expected)
 })
