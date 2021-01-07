@@ -70,3 +70,10 @@ test('scores a spare in the 10th frame', () => {
     const actual = score.strikeLastFrame(finalFrame)
     expect(actual).toBe(expected)
     })
+
+    test('scores a game', () => {
+      const finalScore = 119
+      const expected = 119
+      const actual = score.scoreWholeGame(finalScore)
+      expect(actual).toBe(expected)
+      })
