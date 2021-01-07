@@ -1,6 +1,6 @@
 
 function scoreFrame(frame, nextFrame, thirdFrame) {
-  console.log(thirdFrame)
+
   const numOne = frame[0]
   const numTwo = frame[1]
   const nfOne = nextFrame[0]
@@ -13,7 +13,7 @@ function scoreFrame(frame, nextFrame, thirdFrame) {
   const nfSum = nfOne + nfTwo
   const tfSum = tfOne + tfTwo
 
-  const dblFrame = sum
+
 
   if (isDblStrike(sum, numOne, nfSum, nfOne)) {
     return sum + nfSum + tfSum
@@ -57,14 +57,44 @@ function isDblStrike(sum, numOne, nfSum, nfOne) {
   }
   return false
 }
-function scoreGame(){
+function scoreGame(fullGame) {
+  normalFrames = []
+  bonusArray = []
+
+  const fullGameMap = fullGame.map(val => {
+    const numOne = val[0]
+    const numTwo = val[1]
+    const valSum = numOne + numTwo
+
+    if (isStrike(valSum, numOne)) {
+      bonusArray.push(val)
+    }
+    else if (isSpare(valSum, numOne)) {
+      bonusArray.push(val)
+    }
+    else {
+      normalFrames.push(val)
+    }
+  })
+
+  myArr1 = []
+  const total = normalFrames.map(val => {
+    
+    myArr1.push(val[0])
+    myArr1.push(val[1])
+  })
+  
+  const normalTotal = myArr1.reduce((a,b) => a+b, 0)
+
 
 }
+
 
 module.exports = {
   scoreFrame: scoreFrame,
   isGutter: isGutter,
   isSpare: isSpare,
   isStrike: isStrike,
-  isDblStrike: isDblStrike
+  isDblStrike: isDblStrike,
+  scoreGame: scoreGame
 }
