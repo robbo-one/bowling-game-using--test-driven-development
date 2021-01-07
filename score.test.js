@@ -73,10 +73,29 @@ test('scores a game with a strike in the 10th', () => {
         [3, 6],
         [5, 1],
         [10, 0],
-        [3, 4],
+        [10, 0],
         [10, 10, 10]
     ]
-    const expected = 131
+    const expected = 167
     const actual = score.scoreGame(game)
     expect(actual).toBe(expected) 
 }) 
+test('score perfect game',  () => {
+    const game = [
+       
+        [10, 0],
+        [10, 0],
+        [10, 0],
+        [10, 0],
+        [10, 0],
+        [10, 0],
+        [10, 0],
+        [10, 0],
+        [10, 0],
+        [10, 10, 10]
+        
+    ]
+    const expected = 300
+    const actual = score.scoreGame(game)
+    expect(actual).toBe(expected) 
+})
