@@ -5,10 +5,12 @@ module.exports = {
 
 
 function scoreFrame (frame, nextFrame) {
-  let score = frame[0] + frame[1]
+  let score = frame[0] + frame[1]//score normal frame
   if (score == 10) {
-    score = score + nextFrame[0]
-  } 
+    score = score + nextFrame[0]//score a spare
+  } else if (frame[0] === 10) {
+    score = score + nextFrame[0] + nextFrame[1]//score a single strike
+  }
   return score  
 }
 
