@@ -8,6 +8,7 @@ module.exports = {
   ifStrike: ifStrike,
 
 }
+y
 
   // const frames = [
   // //  [2, 0], [4, 2], [6, 0], [2, 4], [1, 5], [7, 0], [5, 2], [7, 0], [2, 6], [8, 1]

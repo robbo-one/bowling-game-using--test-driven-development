@@ -77,3 +77,4 @@ test('scores a spare in the 10th frame', () => {
       const actual = score.scoreWholeGame(finalScore)
       expect(actual).toBe(expected)
       })
+      y
