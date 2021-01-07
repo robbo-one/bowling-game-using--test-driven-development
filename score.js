@@ -6,7 +6,13 @@ module.exports = {
 function scoreGame (array) { //scores entire game
   let endScore = 0
   for (let i = 0; i < array.length; i++){
-    if(array[i].length == 3){ //checks if very last bowl is strike/spare
+    if(i == array.length-2){ //check if second to last bowl
+      if(array[i][0] == 10){ //if this bowl is a strike
+        endScore = endScore + array[i][0] + array[i+1][0] + array[i+1][1] //don't check two ahead, only one
+      }else { //if not, carry on normally
+        endScore = endScore+ scoreFrame (array[i],array[i+1],array[i+2])
+      }
+    } else if(array[i].length == 3){ //checks if very last bowl is strike/spare
       endScore = endScore + array[i][0] + array[i][1] + array[i][2]
     } else {
       endScore = endScore+ scoreFrame (array[i],array[i+1],array[i+2])
@@ -41,6 +47,4 @@ function spare(score, secondFrame){ //scores a spare
   return score = score + secondFrame[0]
 }
 
-function isLastFrame () {
 
-}
