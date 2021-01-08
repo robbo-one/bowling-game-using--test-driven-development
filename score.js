@@ -8,12 +8,9 @@ function scoreFrame(frame, nextFrame, thirdFrame) {
   const tfOne = thirdFrame[0]
   const tfTwo = thirdFrame[1]
 
-
   const sum = numOne + numTwo
   const nfSum = nfOne + nfTwo
   const tfSum = tfOne + tfTwo
-
-
 
   if (isDblStrike(sum, numOne, nfSum, nfOne)) {
     return sum + nfSum + tfSum
@@ -66,29 +63,46 @@ function scoreGame(fullGame) {
     const numTwo = val[1]
     const valSum = numOne + numTwo
 
-    if (isStrike(valSum, numOne)) {
-      bonusArray.push(val)
-    }
-    else if (isSpare(valSum, numOne)) {
-      bonusArray.push(val)
-    }
-    else {
-      normalFrames.push(val)
-    }
-  })
-
-  myArr1 = []
-  const total = normalFrames.map(val => {
     
-    myArr1.push(val[0])
-    myArr1.push(val[1])
-  })
-  
-  const normalTotal = myArr1.reduce((a,b) => a+b, 0)
+    if (fullGame.indexOf(val) < fullGame.length -1 ){
+console.log(val)
+      const nextArr = fullGame.indexOf(val) +1
+      const nFrame = fullGame[nextArr]
+      const nfOne = fullGame[nextArr][0]
+      const nfTwo = fullGame[nextArr][1]
+      const nfSum = nfOne + nfTwo
 
+    if (isStrike(valSum, numOne) ) {
+      bonusArray.push(fullGame[nextArr]
+        )
+    }
+    if (isDblStrike(valSum, numOne, nfSum, nfOne )){
+      bonusArray.push(fullGame[nextArr+1][0])
+    }
+
+    if (isSpare(valSum, numOne)) {
+      bonusArray.push(fullGame[nextArr][0]
+        )
+    }
+
+
+  }
+  })
+
+  
+console.log("bonus array: ", bonusArray)
+
+  const bonusTotal = bonusArray.flat().reduce((a, b) => a + b, 0)
+
+console.log("bonus: ", bonusTotal)
+  
+  const normalTotal = fullGame.flat().reduce((a,b) => a+b, 0)
+
+console.log("normalTotal", normalTotal)
+
+  return normalTotal + bonusTotal 
 
 }
-
 
 module.exports = {
   scoreFrame: scoreFrame,
