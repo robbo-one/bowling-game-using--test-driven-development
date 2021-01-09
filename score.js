@@ -7,7 +7,6 @@ function scoreFrame(frame, nextFrame, thirdFrame) {
   const nfTwo = nextFrame[1]
   const tfOne = thirdFrame[0]
   const tfTwo = thirdFrame[1]
-
   const sum = numOne + numTwo
   const nfSum = nfOne + nfTwo
   const tfSum = tfOne + tfTwo
@@ -63,44 +62,39 @@ function scoreGame(fullGame) {
     const numTwo = val[1]
     const valSum = numOne + numTwo
 
-    
-    if (fullGame.indexOf(val) < fullGame.length -1 ){
-console.log(val)
-      const nextArr = fullGame.indexOf(val) +1
-      const nFrame = fullGame[nextArr]
+    if (fullGame.indexOf(val) < fullGame.length - 1) {
+      console.log(val)
+      const nextArr = fullGame.indexOf(val) + 1
       const nfOne = fullGame[nextArr][0]
       const nfTwo = fullGame[nextArr][1]
       const nfSum = nfOne + nfTwo
 
-    if (isStrike(valSum, numOne) ) {
-      bonusArray.push(fullGame[nextArr]
+      if (isStrike(valSum, numOne)) {
+        bonusArray.push(fullGame[nextArr]
         )
-    }
-    if (isDblStrike(valSum, numOne, nfSum, nfOne )){
-      bonusArray.push(fullGame[nextArr+1][0])
-    }
+      }
+      if (isDblStrike(valSum, numOne, nfSum, nfOne)) {
+        bonusArray.push(fullGame[nextArr + 1][0])
+      }
 
-    if (isSpare(valSum, numOne)) {
-      bonusArray.push(fullGame[nextArr][0]
+      if (isSpare(valSum, numOne)) {
+        bonusArray.push(fullGame[nextArr][0]
         )
+      }
     }
-
-
-  }
   })
 
-  
-console.log("bonus array: ", bonusArray)
+  console.log("bonus array: ", bonusArray)
 
   const bonusTotal = bonusArray.flat().reduce((a, b) => a + b, 0)
 
-console.log("bonus: ", bonusTotal)
-  
-  const normalTotal = fullGame.flat().reduce((a,b) => a+b, 0)
+  console.log("bonus: ", bonusTotal)
 
-console.log("normalTotal", normalTotal)
+  const normalTotal = fullGame.flat().reduce((a, b) => a + b, 0)
 
-  return normalTotal + bonusTotal 
+  console.log("normalTotal", normalTotal)
+
+  return normalTotal + bonusTotal
 
 }
 
