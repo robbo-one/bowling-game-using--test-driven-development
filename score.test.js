@@ -35,7 +35,7 @@ test('scores a spare frame', () => {
 test('scores a single strike', () => {
   const frame = [10, 0]
   const nextFrame = [5, 2]
-  const expected = 15
+  const expected = 17
 
   const actual = score.scoreFrame(frame, nextFrame)
 
